@@ -19,7 +19,7 @@ script:
 
 script:
     #- ./bin/phpspec run -fpretty --verbose
-    - phpunit --configuration phpunit.xml
+    - phpunit --configuration ./phpunit.xml
 
 matrix:
     allow_failures:
