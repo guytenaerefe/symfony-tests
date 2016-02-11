@@ -18,8 +18,7 @@ script:
     - app/console cache:warmup --env=test --quiet
 
 script:
-    #- ./bin/phpspec run -fpretty --verbose
-    - phpunit --configuration ./phpunit.xml
+    - phpunit --configuration phpunit.xml.dist
 
 matrix:
     allow_failures:
