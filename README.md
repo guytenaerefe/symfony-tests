@@ -1,6 +1,4 @@
-
 ## My First Symfony
-=============
 
 [![Build Status](https://travis-ci.org/guytenaerefe/symfony-tests.svg?branch=develop)](https://travis-ci.org/guytenaerefe/symfony-tests)
 
