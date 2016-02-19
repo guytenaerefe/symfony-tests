@@ -14,8 +14,11 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
+        $coverage = xdebug_get_code_coverage();
+        $base_dir = realpath($this->getParameter('kernel.root_dir').'/..');
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'base_dir' => $base_dir,
+            'coverage' => $coverage,
         ]);
     }
 }
