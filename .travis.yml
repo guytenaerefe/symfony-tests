@@ -7,23 +7,14 @@ php:
     - 7.0
     - hhvm
 
-#services:
-#    - docker
-
 services:
     - mysql
 
-#before_install:
-#    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-
 before_script:
-    #- docker build https://github.com/guytenaerefe/centos6-php7-xdebug.git#master:web
     - cp app/config/parameters.yml.travis app/config/parameters.yml
     - composer self-update
     - composer install --dev --no-interaction --prefer-source
     - bin/console doctrine:database:create --env=test --no-interaction --quiet
-    #- app/console doctrine:migrations:migrate --env=test --no-interaction --quiet
-    #- app/console cache:warmup --env=test --quiet
 
 script:
     - phpunit --configuration phpunit.xml.dist --coverage-clover=coverage.xml
