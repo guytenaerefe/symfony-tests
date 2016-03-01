@@ -16,3 +16,4 @@
 /web/bundles/
 .phpcomplete_extended/
 .idea/
+coverage.xml
