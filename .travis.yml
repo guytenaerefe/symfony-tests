@@ -1,23 +1,31 @@
+sudo: required
+
 language: php
 
 php:
     - 5.5
+    - 7.0
     - hhvm
 
 services:
-    - mysql
+    - docker
 
+services:
+    - mysql
 
 before_script:
     - cp app/config/parameters.yml.dist app/config/parameters.yml
     - composer self-update
     - composer install --dev --no-interaction --prefer-source
-      #- app/console doctrine:database:create --env=test --no-interaction --quiet
+    - bin/console doctrine:database:create --env=test --no-interaction --quiet
       #- app/console doctrine:migrations:migrate --env=test --no-interaction --quiet
       #- app/console cache:warmup --env=test --quiet
 
 script:
-    - phpunit --configuration phpunit.xml.dist
+    - phpunit --configuration phpunit.xml.dist --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 matrix:
     allow_failures:
