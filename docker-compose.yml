@@ -4,7 +4,7 @@ services:
   web:
     container_name: symfony_web 
     extends:
-      file: ./../docker/centos/base-configuration.yml
+      file: ./../docker/centos/base-machine.yml
       service: web
     volumes:
       - ./web/vhost.d/:/etc/httpd/vhost.d/
@@ -12,7 +12,7 @@ services:
   db:
     container_name: symfony_db
     extends:
-      file: ./../docker/centos/base-configuration.yml
+      file: ./../docker/centos/base-machine.yml
       service: db 
     volumes:
       - db_symfony:/var/lib/mysql
