@@ -7,7 +7,7 @@ services:
       file: ./../docker/centos/base-machine.yml
       service: web
     volumes:
-      - ./web/vhost.d/:/etc/httpd/vhost.d/
+      - ./docker/vhost.d/:/etc/httpd/vhost.d/
       - /var/www/git/:/var/www/git/
   db:
     container_name: symfony_db
